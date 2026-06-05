@@ -34,7 +34,7 @@
 
 <div class="page-hero">
   <h1>The <em>Shop</em></h1>
-  <p>Every piece is made custom for you · 3–5 business days/p>
+  <p>Every piece is made custom for you · 3–5 business days</p>
 </div>
 
 <div class="section-wrap" style="padding-top: 2rem;">
@@ -209,17 +209,17 @@
       </div>
 
       <div class="payment-box">
-        <p>Checkout is opening soon. For now, send this order request and HoneyWireStudio will reply with the next steps.</p>
-        <span class="payment-note">Prefer a quick order? DM @honeywirestudio on Instagram.</span>
+        <p>Secure checkout opens with Stripe. Apple Pay may show automatically when available.</p>
+        <span class="payment-note">Your order details will be attached to the Stripe payment.</span>
       </div>
 
-      <button class="submit-order-btn" onclick="submitOrder()">Send Order Request</button>
+      <button class="submit-order-btn" id="shopCheckoutBtn" onclick="submitOrder()">Continue to Secure Checkout</button>
     </div>
 
     <div id="successMsg" class="success-msg" style="display:none">
       <div class="check">🍯</div>
-      <h3>Order Request Ready!</h3>
-      <p>Your email app should open with the order details. Send it to HoneyWireStudio, and we will reply with the next steps.<br><br>Questions? Text <strong>(805) 535-8720</strong></p>
+      <h3>Opening Checkout!</h3>
+      <p>Stripe checkout should open in a moment. If it does not, check your Stripe key and Netlify function logs.<br><br>Questions? Text <strong>(805) 535-8720</strong></p>
       <button class="btn-gold" style="margin-top:1.5rem" onclick="closeModal()">Close</button>
     </div>
   </div>
@@ -230,7 +230,7 @@
     <div class="footer-brand"><h3>🍯 HoneyWireStudio</h3><p>Handcrafted wire jewelry<br>Seal Beach, CA</p></div>
     <div class="footer-links"><h4>Shop</h4><a href="shop.html">Available Now</a><a href="coming-soon.html">Coming Soon</a><a href="customs.html">Custom Orders</a></div>
     <div class="footer-links"><h4>Info</h4><a href="contact.html">Contact</a><a href="refund.html">Refund Policy</a></div>
-    <div class="footer-contact"><h4>Contact</h4><p>📧 nramirez1789@gmail.com</p><p>📱 (805) 535-8720</p><p>💳 Checkout coming soon</p></div>
+    <div class="footer-contact"><h4>Contact</h4><p>📧 nramirez1789@gmail.com</p><p>📱 (805) 535-8720</p><p>💳 Secure Stripe checkout</p></div>
   </div>
   <div class="footer-bottom"><p>© 2025 HoneyWireStudio. All rights reserved. 🐝</p></div>
 </footer>
@@ -256,7 +256,7 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-function submitOrder() {
+async function submitOrder() {
   const required = ['fname','lname','email','phone','address','city','state','zip'];
   let valid = true;
   required.forEach(id => {
@@ -270,27 +270,32 @@ function submitOrder() {
   });
   if (!valid) { alert('Please fill in all required fields.'); return; }
 
-  const total = (currentProduct.price + 9.85).toFixed(2);
-  const name = `${document.getElementById('fname').value.trim()} ${document.getElementById('lname').value.trim()}`;
-  const address = `${document.getElementById('address').value.trim()}, ${document.getElementById('city').value.trim()}, ${document.getElementById('state').value.trim()} ${document.getElementById('zip').value.trim()}`;
-  const subject = encodeURIComponent(`Order Request: ${currentProduct.name}`);
-  const body = encodeURIComponent(
-    `Hi HoneyWireStudio,\n\n` +
-    `I'd like to order:\n${currentProduct.name}\n\n` +
-    `Item: $${currentProduct.price}\nShipping: $9.85\nEstimated total: $${total}\n\n` +
-    `Customer info:\n` +
-    `Name: ${name}\n` +
-    `Email: ${document.getElementById('email').value.trim()}\n` +
-    `Phone: ${document.getElementById('phone').value.trim()}\n` +
-    `Address: ${address}\n` +
-    `Size/Fit Notes: ${document.getElementById('size').value.trim() || 'None'}\n` +
-    `Special Requests: ${document.getElementById('notes').value.trim() || 'None'}\n\n` +
-    `Please send me the next steps to complete my order.`
-  );
+  if (typeof startStripeCheckout !== 'function') {
+    alert('Stripe checkout script is missing. Make sure script.js is uploaded.');
+    return;
+  }
 
-  window.location.href = `mailto:nramirez1789@gmail.com?subject=${subject}&body=${body}`;
-  document.getElementById('orderFormWrap').style.display = 'none';
-  document.getElementById('successMsg').style.display = 'block';
+  await startStripeCheckout({
+    type: 'product',
+    productName: currentProduct.name,
+    itemAmount: currentProduct.price,
+    shippingAmount: 9.85,
+    customer: {
+      firstName: document.getElementById('fname').value.trim(),
+      lastName: document.getElementById('lname').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      address: document.getElementById('address').value.trim(),
+      city: document.getElementById('city').value.trim(),
+      state: document.getElementById('state').value.trim(),
+      zip: document.getElementById('zip').value.trim()
+    },
+    notes: {
+      size: document.getElementById('size').value.trim() || 'None',
+      specialRequests: document.getElementById('notes').value.trim() || 'None'
+    },
+    button: document.getElementById('shopCheckoutBtn')
+  });
 }
 
 document.getElementById('orderModal').addEventListener('click', function(e) {

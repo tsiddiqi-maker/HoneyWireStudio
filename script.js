@@ -38,7 +38,7 @@ async function startStripeCheckout(order) {
     if (!response.ok) throw new Error(data.error || 'Checkout could not start.');
     window.location.href = data.url;
   } catch (error) {
-    alert(`${error.message}\n\nStripe needs the live secret key in the server environment before checkout can run.`);
+    alert(`${error.message}\n\nStripe checkout could not open. Check STRIPE_SECRET_KEY in Netlify and make sure the Netlify Function deployed.`);
     if (button) {
       button.disabled = false;
       button.textContent = previousText;

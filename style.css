@@ -1199,3 +1199,54 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+
+/* =============================================
+   REVIEWS
+   ============================================= */
+.reviews-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(160deg, var(--warm-white), var(--honey-pale));
+}
+
+.reviews-grid {
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.review-card {
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(232,164,42,0.22);
+  border-radius: 22px;
+  padding: 1.6rem;
+  box-shadow: 0 12px 35px var(--shadow);
+}
+
+.review-stars {
+  color: var(--honey-dark);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.9rem;
+  font-size: 0.9rem;
+}
+
+.review-card p {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  line-height: 1.45;
+  color: var(--charcoal);
+  margin-bottom: 1rem;
+}
+
+.review-card span {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
