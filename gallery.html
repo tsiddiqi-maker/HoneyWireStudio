@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery — HoneyWireStudio 🍯</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      padding: 1rem;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 12px;
+      width: auto;
+      height: auto;
+    }
+    .lb-close {
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .lb-caption {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🍯 HoneyWireStudio</a>
+    <button class="hamburger" id="hamburger">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="coming-soon.html">Coming Soon</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="customs.html">Custom Order</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/honeywirestudio/" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>Past <em>Work</em></h1>
+  <p>A look at pieces that have found their forever homes ✨ — see something you love? Order a custom!</p>
+</div>
+
+<div class="gallery-masonry fade-in" style="padding-top:1rem">
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5339.jpg','Blue Flower Gold Arm Cuff Set')">
+    <img src="images/IMG_5339.jpg" alt="Blue Flower Gold Arm Cuff Set" loading="lazy">
+    <div class="gallery-item-label">Blue Flower Gold Arm Cuff Set</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5341_2.jpg','Shell Pearl Necklace and Earring Set')">
+    <img src="images/IMG_5341_2.jpg" alt="Shell Pearl Necklace and Earring Set" loading="lazy">
+    <div class="gallery-item-label">Shell Pearl Necklace and Earring Set</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5343.jpg','Peridot Spring Armband')">
+    <img src="images/IMG_5343.jpg" alt="Peridot Spring Armband" loading="lazy">
+    <div class="gallery-item-label">Peridot Spring Armband</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5344.jpg','Simple Gold Spiral Arm Cuff Set')">
+    <img src="images/IMG_5344.jpg" alt="Simple Gold Spiral Arm Cuff Set" loading="lazy">
+    <div class="gallery-item-label">Simple Gold Spiral Arm Cuff Set</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5345.jpg','Minimal Gold Arm Cuff Set')">
+    <img src="images/IMG_5345.jpg" alt="Minimal Gold Arm Cuff Set" loading="lazy">
+    <div class="gallery-item-label">Minimal Gold Arm Cuff Set</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5346.jpg','Green Stone Hand and Ring Set')">
+    <img src="images/IMG_5346.jpg" alt="Green Stone Hand and Ring Set" loading="lazy">
+    <div class="gallery-item-label">Green Stone Hand and Ring Set</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5347.jpg','Red & White Crystal Hand Set')">
+    <img src="images/IMG_5347.jpg" alt="Red & White Crystal Hand Set" loading="lazy">
+    <div class="gallery-item-label">Red & White Crystal Hand Set</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5348.jpg','Gold Pearl Hand Chain Ring')">
+    <img src="images/IMG_5348.jpg" alt="Gold Pearl Hand Chain Ring" loading="lazy">
+    <div class="gallery-item-label">Gold Pearl Hand Chain Ring</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5349.jpg','Flower Petal Wire Rings')">
+    <img src="images/IMG_5349.jpg" alt="Flower Petal Wire Rings" loading="lazy">
+    <div class="gallery-item-label">Flower Petal Wire Rings</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5350.jpg','Sunlight — Gold & Butterfly Hand Set')">
+    <img src="images/IMG_5350.jpg" alt="Sunlight Gold Hand Set" loading="lazy">
+    <div class="gallery-item-label">Sunlight — Gold & Butterfly Hand Set</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5352.jpg','Purple Crystal Armband')">
+    <img src="images/IMG_5352.jpg" alt="Purple Crystal Armband" loading="lazy">
+    <div class="gallery-item-label">Purple Crystal Armband</div>
+  </div>
+
+  <div class="gallery-item" onclick="openLightbox('images/IMG_5354.jpg','Gold & Turquoise Hand Set')">
+    <img src="images/IMG_5354.jpg" alt="Gold & Turquoise Hand Set" loading="lazy">
+    <div class="gallery-item-label">Gold & Turquoise Hand Set</div>
+  </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<!-- CTA -->
+<div style="background:var(--honey-pale);padding:5rem 2rem;text-align:center">
+  <h2 style="font-family:var(--font-display);font-size:2rem;color:var(--charcoal);margin-bottom:0.75rem">Love something you see? 🍯</h2>
+  <p style="color:var(--text-light);margin-bottom:2rem">Any of these can be recreated as a custom order — just tell us what you love!</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="customs.html" class="btn-gold">Start a Custom Order</a>
+    <a href="shop.html" class="btn-outline">Shop Available Pieces</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><h3>🍯 HoneyWireStudio</h3><p>Handcrafted wire jewelry<br>Seal Beach, CA</p></div>
+    <div class="footer-links"><h4>Shop</h4><a href="shop.html">Available Now</a><a href="coming-soon.html">Coming Soon</a><a href="customs.html">Custom Orders</a></div>
+    <div class="footer-links"><h4>Info</h4><a href="contact.html">Contact</a><a href="refund.html">Refund Policy</a></div>
+    <div class="footer-contact"><h4>Contact</h4><p>📧 nramirez1789@gmail.com</p><p>📱 (805) 535-8720</p></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 HoneyWireStudio. All rights reserved. 🐝</p></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function openLightbox(src, caption) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+</body>
+</html>

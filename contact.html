@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — HoneyWireStudio 🍯</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🍯 HoneyWireStudio</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="coming-soon.html">Coming Soon</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="customs.html">Custom Order</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/honeywirestudio/" target="_blank" title="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>Contact <em>HoneyWire</em></h1>
+  <p>Questions, custom ideas, order help, or a piece you have been dreaming up.</p>
+</div>
+
+<main class="contact-wrap fade-in">
+  <aside class="contact-info">
+    <h3>Let’s Talk Details</h3>
+    <div class="contact-item">
+      <div class="ci-icon">📧</div>
+      <div><div class="ci-label">Email</div><div class="ci-val">nramirez1789@gmail.com</div></div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">📱</div>
+      <div><div class="ci-label">Text</div><div class="ci-val">(805) 535-8720</div></div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">📍</div>
+      <div><div class="ci-label">Studio</div><div class="ci-val">Seal Beach, CA</div></div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">✨</div>
+      <div><div class="ci-label">Response Time</div><div class="ci-val">Usually within 6-12 hours</div></div>
+    </div>
+  </aside>
+
+  <section class="contact-form">
+    <h3>Send a Message</h3>
+    <div class="form-row">
+      <div class="form-group"><label>First Name *</label><input id="contactFirstName" type="text" placeholder="Natalie"></div>
+      <div class="form-group"><label>Last Name *</label><input id="contactLastName" type="text" placeholder="Smith"></div>
+    </div>
+    <div class="form-group"><label>Email *</label><input id="contactEmail" type="email" placeholder="you@email.com"></div>
+    <div class="form-group"><label>Phone</label><input id="contactPhone" type="tel" placeholder="(805) 555-0000"></div>
+    <div class="form-group">
+      <label>What can we help with? *</label>
+      <select id="contactTopic">
+        <option value="Custom order">Custom order</option>
+        <option value="Existing order">Existing order</option>
+        <option value="Product question">Product question</option>
+        <option value="Collaboration">Collaboration</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Message *</label><textarea id="contactMessage" placeholder="Tell us what you have in mind..."></textarea></div>
+    <button class="submit-order-btn" id="contactButton" onclick="submitContact()">Send Message</button>
+    <p id="contactStatus" class="form-status" role="status"></p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><h3>🍯 HoneyWireStudio</h3><p>Handcrafted wire jewelry<br>Seal Beach, CA</p></div>
+    <div class="footer-links"><h4>Shop</h4><a href="shop.html">Available Now</a><a href="coming-soon.html">Coming Soon</a><a href="customs.html">Custom Orders</a></div>
+    <div class="footer-links"><h4>Info</h4><a href="contact.html">Contact</a><a href="refund.html">Refund Policy</a></div>
+    <div class="footer-contact"><h4>Contact</h4><p>📧 nramirez1789@gmail.com</p><p>📱 (805) 535-8720</p><p>💳 Checkout coming soon</p></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 HoneyWireStudio. All rights reserved.</p></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function submitContact() {
+  const required = ['contactFirstName', 'contactLastName', 'contactEmail', 'contactMessage'];
+  let valid = true;
+  required.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.style.borderColor = '#e74c3c'; valid = false; }
+    else el.style.borderColor = '';
+  });
+  if (!valid) return;
+
+  const button = document.getElementById('contactButton');
+  const status = document.getElementById('contactStatus');
+  button.disabled = true;
+  button.textContent = 'Opening Email...';
+  status.textContent = '';
+
+  const name = `${document.getElementById('contactFirstName').value.trim()} ${document.getElementById('contactLastName').value.trim()}`;
+  const email = document.getElementById('contactEmail').value.trim();
+  const phone = document.getElementById('contactPhone').value.trim() || 'Not provided';
+  const topic = document.getElementById('contactTopic').value;
+  const message = document.getElementById('contactMessage').value.trim();
+  const subject = encodeURIComponent(`HoneyWireStudio Message: ${topic}`);
+  const body = encodeURIComponent(
+    `Hi HoneyWireStudio,\n\n${message}\n\n` +
+    `From: ${name}\nEmail: ${email}\nPhone: ${phone}\nTopic: ${topic}`
+  );
+
+  window.location.href = `mailto:nramirez1789@gmail.com?subject=${subject}&body=${body}`;
+  status.textContent = 'Your email app should open with the message ready to send.';
+  button.disabled = false;
+  button.textContent = 'Send Message';
+}
+</script>
+</body>
+</html>

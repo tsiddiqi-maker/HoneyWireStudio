@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Orders — HoneyWireStudio 🍯</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🍯 HoneyWireStudio</a>
+    <button class="hamburger" id="hamburger">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="coming-soon.html">Coming Soon</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="customs.html" class="active">Custom Order</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/honeywirestudio/" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>Custom <em>Orders</em></h1>
+  <p>Design your dream piece — pick your wire, complexity, and extras. We'll make it just for you 🍯</p>
+</div>
+
+<div class="builder-wrap">
+
+  <!-- STEP 1: Wire Type -->
+  <div class="builder-step fade-in">
+    <h3>Step 1 — Choose Your Wire</h3>
+    <div class="option-grid">
+      <button class="option-btn" data-group="wire" data-price="25" onclick="selectOption(this,'wire')">
+        <span class="opt-name">✨ Gold Plated Wire</span>
+        <span class="opt-price">$25</span>
+        <span class="opt-desc">Warm, luxurious gold tone — most popular</span>
+      </button>
+      <button class="option-btn" data-group="wire" data-price="35" onclick="selectOption(this,'wire')">
+        <span class="opt-name">🔩 Stainless Steel Wire</span>
+        <span class="opt-price">$35</span>
+        <span class="opt-desc">Cool silver tone — durable & hypoallergenic</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Design Complexity -->
+  <div class="builder-step fade-in">
+    <h3>Step 2 — Choose Your Design</h3>
+    <div class="option-grid" style="grid-template-columns:repeat(3,1fr)">
+      <button class="option-btn" data-group="design" data-price="0" onclick="selectOption(this,'design')">
+        <span class="opt-name">Simple</span>
+        <span class="opt-price">+$0</span>
+        <span class="opt-desc">Clean spiral or basic wire shape</span>
+      </button>
+      <button class="option-btn" data-group="design" data-price="4" onclick="selectOption(this,'design')">
+        <span class="opt-name">Simple + Beads</span>
+        <span class="opt-price">+$4</span>
+        <span class="opt-desc">Simple design with bead accents</span>
+      </button>
+      <button class="option-btn" data-group="design" data-price="8" onclick="selectOption(this,'design')">
+        <span class="opt-name">Simple + Pendant</span>
+        <span class="opt-price">+$8</span>
+        <span class="opt-desc">Simple design with beads & pendant charm</span>
+      </button>
+      <button class="option-btn" data-group="design" data-price="8" onclick="selectOption(this,'design')">
+        <span class="opt-name">Complex</span>
+        <span class="opt-price">+$8</span>
+        <span class="opt-desc">Intricate wire wrapping & spirals</span>
+      </button>
+      <button class="option-btn" data-group="design" data-price="12" onclick="selectOption(this,'design')">
+        <span class="opt-name">Complex + Beads</span>
+        <span class="opt-price">+$12</span>
+        <span class="opt-desc">Complex design with beautiful bead work</span>
+      </button>
+      <button class="option-btn" data-group="design" data-price="16" onclick="selectOption(this,'design')">
+        <span class="opt-name">Complex + Pendant</span>
+        <span class="opt-price">+$16</span>
+        <span class="opt-desc">Most intricate — beads, pendant & details</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- PRICE SUMMARY -->
+  <div class="price-summary fade-in" id="priceSummary">
+    <div class="total-label">Your Estimated Total</div>
+    <div class="total-amt" id="totalPrice">$—</div>
+    <div style="font-size:0.8rem;color:var(--text-light);margin-top:0.5rem">+ $9.85 shipping · 3–5 business days</div>
+    <div id="selectedSummary" style="margin-top:1rem;font-size:0.85rem;color:var(--text-light)">Select your options above to see pricing</div>
+  </div>
+
+  <!-- ARM CUFF SIMULATOR -->
+  <div class="simulator-wrap fade-in">
+    <div class="simulator-panel">
+      <div class="simulator-copy">
+        <p class="sim-eyebrow">Build the Vibe</p>
+        <h3>Arm Cuff Simulator</h3>
+        <p>Play with wire, beads, charms, and swirl level before sending your custom order.</p>
+      </div>
+
+      <div class="sim-preview" aria-label="Arm cuff design preview">
+        <svg viewBox="0 0 420 420" role="img">
+          <defs>
+            <linearGradient id="armSkin" x1="0" x2="1">
+              <stop offset="0" stop-color="#f2c49b"/>
+              <stop offset="1" stop-color="#d9966d"/>
+            </linearGradient>
+          </defs>
+          <rect class="sim-arm" x="116" y="42" width="190" height="336" rx="95"/>
+          <path class="sim-wire sim-wire-main" d="M118 250 C164 192, 246 193, 304 248"/>
+          <path class="sim-wire sim-wire-top" d="M132 200 C172 156, 236 156, 292 202"/>
+          <path class="sim-wire sim-wire-bottom" d="M126 296 C176 338, 252 337, 298 292"/>
+          <path class="sim-swirl sim-swirl-left" d="M124 250 C78 226, 92 180, 130 192 C160 202, 154 238, 124 229"/>
+          <path class="sim-swirl sim-swirl-right" d="M300 248 C350 224, 334 178, 294 194 C264 207, 272 238, 302 228"/>
+          <g class="sim-beads">
+            <circle cx="152" cy="218" r="9"/><circle cx="188" cy="204" r="8"/><circle cx="226" cy="204" r="8"/>
+            <circle cx="262" cy="219" r="9"/><circle cx="166" cy="291" r="7"/><circle cx="246" cy="292" r="7"/>
+          </g>
+          <g class="sim-charm sim-charm-flower">
+            <circle cx="210" cy="247" r="10"/><circle cx="210" cy="221" r="18"/><circle cx="210" cy="273" r="18"/>
+            <circle cx="184" cy="247" r="18"/><circle cx="236" cy="247" r="18"/><circle cx="210" cy="247" r="9"/>
+          </g>
+          <g class="sim-charm sim-charm-butterfly">
+            <path d="M204 245 C160 205, 158 276, 203 254"/><path d="M216 245 C260 205, 262 276, 217 254"/>
+            <line x1="210" y1="235" x2="210" y2="268"/>
+          </g>
+          <g class="sim-charm sim-charm-heart">
+            <path d="M210 276 C166 238, 184 203, 210 222 C236 203, 254 238, 210 276"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="sim-controls">
+        <div class="sim-control">
+          <span>Wire</span>
+          <div class="swatch-row" data-sim-group="wire">
+            <button class="swatch selected" style="--swatch:#D4A843" data-value="gold" aria-label="Gold wire"></button>
+            <button class="swatch" style="--swatch:#BFC4C7" data-value="silver" aria-label="Silver wire"></button>
+            <button class="swatch" style="--swatch:#B26A3C" data-value="copper" aria-label="Copper wire"></button>
+          </div>
+        </div>
+        <div class="sim-control">
+          <span>Beads</span>
+          <div class="swatch-row" data-sim-group="beads">
+            <button class="swatch selected" style="--swatch:#6ec7d8" data-value="ocean" aria-label="Ocean beads"></button>
+            <button class="swatch" style="--swatch:#db8ab1" data-value="rose" aria-label="Rose beads"></button>
+            <button class="swatch" style="--swatch:#84b86f" data-value="garden" aria-label="Garden beads"></button>
+            <button class="swatch" style="--swatch:#f2c94c" data-value="sunset" aria-label="Sunset beads"></button>
+          </div>
+        </div>
+        <div class="sim-control">
+          <span>Charm</span>
+          <div class="segmented-row" data-sim-group="charm">
+            <button class="selected" data-value="flower">Flower</button>
+            <button data-value="butterfly">Butterfly</button>
+            <button data-value="heart">Heart</button>
+          </div>
+        </div>
+        <div class="sim-control">
+          <label for="swirlRange">Swirl Level</label>
+          <input id="swirlRange" type="range" min="0" max="2" value="2">
+        </div>
+        <div class="sim-result" id="simResult">Gold wire · ocean beads · flower charm · dramatic swirls</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER FORM -->
+  <div class="builder-step fade-in" id="customFormSection">
+    <h3>Step 3 — Tell Us About Your Piece</h3>
+
+    <div class="form-row">
+      <div class="form-group"><label>First Name *</label><input type="text" id="cfname" placeholder="Your name"></div>
+      <div class="form-group"><label>Last Name *</label><input type="text" id="clname" placeholder="Last name"></div>
+    </div>
+    <div class="form-group"><label>Email *</label><input type="email" id="cemail" placeholder="you@email.com"></div>
+    <div class="form-group"><label>Phone Number *</label><input type="tel" id="cphone" placeholder="(805) 555-0000"></div>
+    <div class="form-group"><label>Street Address *</label><input type="text" id="caddress" placeholder="123 Main St"></div>
+    <div class="form-row">
+      <div class="form-group"><label>City *</label><input type="text" id="ccity" placeholder="Seal Beach"></div>
+      <div class="form-group"><label>State *</label><input type="text" id="cstate" placeholder="CA"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>ZIP *</label><input type="text" id="czip" placeholder="90740"></div>
+      <div class="form-group"><label>Wrist/Arm Size</label><input type="text" id="csize" placeholder='e.g. 6.5" or "small"'></div>
+    </div>
+
+    <div class="form-group">
+      <label>Color Preferences / Inspiration</label>
+      <textarea id="ccolors" placeholder="e.g. purple & gold, butterflies, beach vibes, rose quartz crystals..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Reference / Inspiration (describe or link)</label>
+      <textarea id="cinspo" placeholder="Describe the vibe, mention a gallery piece you loved, or paste an Instagram link..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Anything Else?</label>
+      <textarea id="cnotes" placeholder="Occasion, deadline, special requests..."></textarea>
+    </div>
+
+    <div style="background:var(--honey-pale);border-radius:12px;padding:1.25rem;margin:1.25rem 0;font-size:0.85rem;color:var(--brown)">
+      <strong>Payment:</strong> Stripe checkout is coming soon. For now, submit your custom request and HoneyWireStudio will reply with next steps.
+    </div>
+
+    <div class="order-total">
+      <span>Item + Shipping ($9.85)</span>
+      <span class="total-price" id="customTotal">Select options above</span>
+    </div>
+
+    <button class="submit-order-btn" onclick="submitCustom()">Send Custom Request</button>
+  </div>
+
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="customSuccess">
+  <div class="modal-box" style="max-width:440px;text-align:center">
+    <div class="success-msg">
+      <div class="check">🍯</div>
+      <h3>Custom Request Ready!</h3>
+      <p>Your email app should open with the custom order details. Send it to HoneyWireStudio, and we will reply with next steps.<br><br>Questions? Text <strong>(805) 535-8720</strong></p>
+      <button class="btn-gold" style="margin-top:1.5rem" onclick="document.getElementById('customSuccess').classList.remove('open');document.body.style.overflow=''">Done!</button>
+    </div>
+  </div>
+</div>
+
+<!-- INSPIRATION GALLERY -->
+<div style="background:var(--charcoal);padding:5rem 2rem">
+  <div style="text-align:center;margin-bottom:3rem">
+    <h2 style="font-family:var(--font-display);font-size:2.2rem;font-weight:300;color:white;margin-bottom:0.5rem">Need <em style="font-style:italic;color:var(--honey-light)">Inspiration?</em></h2>
+    <p style="color:rgba(255,255,255,0.6)">Browse past work to spark ideas for your custom</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1000px;margin:0 auto">
+    <div style="aspect-ratio:1;border-radius:12px;overflow:hidden"><img src="images/IMG_5346.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+    <div style="aspect-ratio:1;border-radius:12px;overflow:hidden"><img src="images/IMG_5347.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+    <div style="aspect-ratio:1;border-radius:12px;overflow:hidden"><img src="images/IMG_5350.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+    <div style="aspect-ratio:1;border-radius:12px;overflow:hidden"><img src="images/IMG_5352.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  </div>
+  <div style="text-align:center;margin-top:2rem">
+    <a href="gallery.html" class="btn-outline-light">See Full Gallery →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><h3>🍯 HoneyWireStudio</h3><p>Handcrafted wire jewelry<br>Seal Beach, CA</p></div>
+    <div class="footer-links"><h4>Shop</h4><a href="shop.html">Available Now</a><a href="coming-soon.html">Coming Soon</a><a href="customs.html">Custom Orders</a></div>
+    <div class="footer-links"><h4>Info</h4><a href="contact.html">Contact</a><a href="refund.html">Refund Policy</a></div>
+    <div class="footer-contact"><h4>Contact</h4><p>📧 nramirez1789@gmail.com</p><p>📱 (805) 535-8720</p><p>💳 Checkout coming soon</p></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 HoneyWireStudio. All rights reserved. 🐝</p></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+let selections = { wire: null, design: null };
+let simSelections = { wire: 'gold', beads: 'ocean', charm: 'flower', swirls: 'dramatic' };
+
+const simTheme = {
+  wire: {
+    gold: { color: '#D4A843', label: 'Gold wire' },
+    silver: { color: '#BFC4C7', label: 'Silver wire' },
+    copper: { color: '#B26A3C', label: 'Copper wire' }
+  },
+  beads: {
+    ocean: { color: '#6ec7d8', label: 'ocean beads' },
+    rose: { color: '#db8ab1', label: 'rose beads' },
+    garden: { color: '#84b86f', label: 'garden beads' },
+    sunset: { color: '#f2c94c', label: 'sunset beads' }
+  },
+  charm: {
+    flower: { color: '#f7fbff', label: 'flower charm' },
+    butterfly: { color: '#74c7de', label: 'butterfly charm' },
+    heart: { color: '#f3a0bd', label: 'heart charm' }
+  }
+};
+
+function updateSimulator() {
+  const wrap = document.querySelector('.simulator-wrap');
+  if (!wrap) return;
+  const swirlRange = document.getElementById('swirlRange');
+  const swirlLevel = Number(swirlRange.value);
+  const swirlLabels = ['minimal swirls', 'soft swirls', 'dramatic swirls'];
+  simSelections.swirls = swirlLabels[swirlLevel];
+  wrap.dataset.charm = simSelections.charm;
+  wrap.style.setProperty('--sim-wire', simTheme.wire[simSelections.wire].color);
+  wrap.style.setProperty('--sim-beads', simTheme.beads[simSelections.beads].color);
+  wrap.style.setProperty('--sim-charm', simTheme.charm[simSelections.charm].color);
+  wrap.style.setProperty('--sim-swirl-opacity', swirlLevel === 0 ? '0.25' : swirlLevel === 1 ? '0.62' : '1');
+  wrap.style.setProperty('--sim-swirl-scale', swirlLevel === 0 ? '0.78' : swirlLevel === 1 ? '0.9' : '1');
+  document.getElementById('simResult').textContent =
+    `${simTheme.wire[simSelections.wire].label} · ${simTheme.beads[simSelections.beads].label} · ${simTheme.charm[simSelections.charm].label} · ${simSelections.swirls}`;
+}
+
+document.querySelectorAll('[data-sim-group]').forEach(group => {
+  group.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+      group.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+      button.classList.add('selected');
+      simSelections[group.dataset.simGroup] = button.dataset.value;
+      updateSimulator();
+    });
+  });
+});
+document.getElementById('swirlRange').addEventListener('input', updateSimulator);
+updateSimulator();
+
+function selectOption(btn, group) {
+  document.querySelectorAll(`[data-group="${group}"]`).forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selections[group] = { price: parseFloat(btn.dataset.price), label: btn.querySelector('.opt-name').textContent };
+  updatePrice();
+}
+
+function updatePrice() {
+  if (selections.wire && selections.design) {
+    const total = selections.wire.price + selections.design.price;
+    const grandTotal = (total + 9.85).toFixed(2);
+    document.getElementById('totalPrice').textContent = '$' + total;
+    document.getElementById('customTotal').textContent = '$' + grandTotal;
+    document.getElementById('selectedSummary').innerHTML =
+      `<strong>${selections.wire.label}</strong> + <strong>${selections.design.label}</strong> = <strong style="color:var(--honey-dark)">$${total}</strong>`;
+  } else {
+    const known = selections.wire || selections.design;
+    if (known) {
+      document.getElementById('totalPrice').textContent = '$' + known.price + '+';
+      document.getElementById('selectedSummary').textContent = 'Select both options to see final price';
+    }
+  }
+}
+
+function submitCustom() {
+  const required = ['cfname','clname','cemail','cphone','caddress','ccity','cstate','czip'];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.style.borderColor = '#e74c3c'; valid = false; }
+    else el.style.borderColor = '';
+  });
+  if (!valid) { alert('Please fill in all required fields.'); return; }
+  if (!selections.wire || !selections.design) { alert('Please select your wire type and design complexity.'); return; }
+
+  const itemAmount = selections.wire.price + selections.design.price;
+  const total = (itemAmount + 9.85).toFixed(2);
+  const name = `${document.getElementById('cfname').value.trim()} ${document.getElementById('clname').value.trim()}`;
+  const address = `${document.getElementById('caddress').value.trim()}, ${document.getElementById('ccity').value.trim()}, ${document.getElementById('cstate').value.trim()} ${document.getElementById('czip').value.trim()}`;
+  const subject = encodeURIComponent(`Custom Order Request: ${name}`);
+  const body = encodeURIComponent(
+    `Hi HoneyWireStudio,\n\n` +
+    `I'd like to request a custom piece.\n\n` +
+    `Wire: ${selections.wire.label}\n` +
+    `Design: ${selections.design.label}\n` +
+    `Simulator vibe: ${document.getElementById('simResult').textContent}\n` +
+    `Item estimate: $${itemAmount}\nShipping: $9.85\nEstimated total: $${total}\n\n` +
+    `Customer info:\n` +
+    `Name: ${name}\n` +
+    `Email: ${document.getElementById('cemail').value.trim()}\n` +
+    `Phone: ${document.getElementById('cphone').value.trim()}\n` +
+    `Address: ${address}\n` +
+    `Wrist/Arm Size: ${document.getElementById('csize').value.trim() || 'Not specified'}\n\n` +
+    `Color Preferences: ${document.getElementById('ccolors').value.trim() || 'None'}\n` +
+    `Inspiration: ${document.getElementById('cinspo').value.trim() || 'None'}\n` +
+    `Notes: ${document.getElementById('cnotes').value.trim() || 'None'}\n\n` +
+    `Please send me the next steps.`
+  );
+
+  window.location.href = `mailto:nramirez1789@gmail.com?subject=${subject}&body=${body}`;
+  document.getElementById('customSuccess').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+</script>
+</body>
+</html>

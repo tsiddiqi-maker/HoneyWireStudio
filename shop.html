@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop — HoneyWireStudio 🍯</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🍯 HoneyWireStudio</a>
+    <button class="hamburger" id="hamburger">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="coming-soon.html">Coming Soon</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="customs.html">Custom Order</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/honeywirestudio/" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.etsy.com/shop/HoneyWireStudio" target="_blank">🛍️</a>
+      <a href="https://depop.app.link/un0YzF2Qw3b" target="_blank">👜</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>The <em>Shop</em></h1>
+  <p>Every piece is made custom for you · 3–5 business days/p>
+</div>
+
+<div class="section-wrap" style="padding-top: 2rem;">
+
+  <!-- FILTERS -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Pieces</button>
+    <button class="filter-btn" data-filter="armband">Armbands</button>
+    <button class="filter-btn" data-filter="necklace">Necklaces</button>
+    <button class="filter-btn" data-filter="set">Sets</button>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="product-grid" id="productGrid">
+
+    <div class="product-card fade-in" data-cat="armband">
+      <div class="product-img-wrap">
+        <img src="images/IMG_9486.jpg" alt="Rainbow Floral Gold Arm Cuff">
+        <div class="product-overlay"><button class="overlay-btn" onclick="openModal('Rainbow Floral Gold Arm Cuff','37','images/IMG_9486.jpg','Gold wire arm cuff with a white flower focal, rainbow beadwork, pink crystal point, blue heart charms, and flowing spiral details.')">View & Buy</button></div>
+        <span class="badge-avail">Available</span>
+      </div>
+      <div class="product-info">
+        <h3>Rainbow Floral Gold Arm Cuff</h3>
+        <p>Gold wire · white flower · rainbow beads · heart charms</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="price">$37</span>
+          <button class="btn-gold" style="padding:0.5rem 1.1rem;font-size:0.8rem" onclick="openModal('Rainbow Floral Gold Arm Cuff','37','images/IMG_9486.jpg','Gold wire arm cuff with a white flower focal, rainbow beadwork, pink crystal point, blue heart charms, and flowing spiral details.')">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in" data-cat="armband">
+      <div class="product-img-wrap">
+        <img src="images/IMG_9484.jpg" alt="Silver Pearl Flower Butterfly Arm Cuff">
+        <div class="product-overlay"><button class="overlay-btn" onclick="openModal('Silver Pearl Flower Butterfly Arm Cuff','51','images/IMG_9484.jpg','Silver wire arm cuff with pearl beads, clear crystals, a large pearl flower focal, white butterfly charm, and a dangling clover charm.')">View & Buy</button></div>
+        <span class="badge-avail">Available</span>
+      </div>
+      <div class="product-info">
+        <h3>Silver Pearl Flower Butterfly Arm Cuff</h3>
+        <p>Silver wire · pearl flower · white butterfly · clover charm</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="price">$51</span>
+          <button class="btn-gold" style="padding:0.5rem 1.1rem;font-size:0.8rem" onclick="openModal('Silver Pearl Flower Butterfly Arm Cuff','51','images/IMG_9484.jpg','Silver wire arm cuff with pearl beads, clear crystals, a large pearl flower focal, white butterfly charm, and a dangling clover charm.')">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in" data-cat="armband">
+      <div class="product-img-wrap">
+        <img src="images/IMG_9485.jpg" alt="Iridescent Crystal Flower Cuff">
+        <div class="product-overlay"><button class="overlay-btn" onclick="openModal('Iridescent Crystal Flower Cuff','41','images/IMG_9485.jpg','Silver wire cuff with an oversized iridescent blue crystal flower, pearl accents, pale pink beads, and branching bead details.')">View & Buy</button></div>
+        <span class="badge-avail">Available</span>
+      </div>
+      <div class="product-info">
+        <h3>Iridescent Crystal Flower Cuff</h3>
+        <p>Silver wire · blue crystal flower · pearls · branching beads</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="price">$41</span>
+          <button class="btn-gold" style="padding:0.5rem 1.1rem;font-size:0.8rem" onclick="openModal('Iridescent Crystal Flower Cuff','41','images/IMG_9485.jpg','Silver wire cuff with an oversized iridescent blue crystal flower, pearl accents, pale pink beads, and branching bead details.')">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in" data-cat="set armband">
+      <div class="product-img-wrap">
+        <img src="images/IMG_9479.jpg" alt="Green Butterfly Gold Arm Cuff Set">
+        <div class="product-overlay"><button class="overlay-btn" onclick="openModal('Green Butterfly Gold Arm Cuff Set','41','images/IMG_9479.jpg','Two-piece gold arm cuff set with green beads, shell discs, a green flower focal, and an iridescent green butterfly charm.')">View & Buy</button></div>
+        <span class="badge-avail">Available</span>
+      </div>
+      <div class="product-info">
+        <h3>Green Butterfly Gold Arm Cuff Set</h3>
+        <p>Gold wire · green flower · iridescent butterfly · set of 2</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="price">$41</span>
+          <button class="btn-gold" style="padding:0.5rem 1.1rem;font-size:0.8rem" onclick="openModal('Green Butterfly Gold Arm Cuff Set','41','images/IMG_9479.jpg','Two-piece gold arm cuff set with green beads, shell discs, a green flower focal, and an iridescent green butterfly charm.')">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in" data-cat="set armband">
+      <div class="product-img-wrap">
+        <img src="images/IMG_5339.jpg" alt="Blue Flower Gold Arm Cuff Set">
+        <div class="product-overlay"><button class="overlay-btn" onclick="openModal('Blue Flower Gold Arm Cuff Set','37','images/IMG_5339.jpg','Gold wire arm cuff set with a white flower focal, blue faceted beads, a small white flower charm, and a dangling clear quartz accent.')">View & Buy</button></div>
+        <span class="badge-avail">Available</span>
+      </div>
+      <div class="product-info">
+        <h3>Blue Flower Gold Arm Cuff Set</h3>
+        <p>Gold wire · white flower · blue beads · quartz dangle</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="price">$37</span>
+          <button class="btn-gold" style="padding:0.5rem 1.1rem;font-size:0.8rem" onclick="openModal('Blue Flower Gold Arm Cuff Set','37','images/IMG_5339.jpg','Gold wire arm cuff set with a white flower focal, blue faceted beads, a small white flower charm, and a dangling clear quartz accent.')">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-in" data-cat="necklace set">
+      <div class="product-img-wrap">
+        <img src="images/IMG_5341_2.jpg" alt="Shell Pearl Necklace and Earring Set">
+        <div class="product-overlay"><button class="overlay-btn" onclick="openModal('Shell Pearl Necklace and Earring Set','25','images/IMG_5341_2.jpg','Gold chain necklace with a natural shell pendant, pearl drop, and matching shell-and-pearl earrings.')">View & Buy</button></div>
+        <span class="badge-avail">Available</span>
+      </div>
+      <div class="product-info">
+        <h3>Shell Pearl Necklace and Earring Set</h3>
+        <p>Gold chain · shell pendant · pearl drop · matching earrings</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="price">$25</span>
+          <button class="btn-gold" style="padding:0.5rem 1.1rem;font-size:0.8rem" onclick="openModal('Shell Pearl Necklace and Earring Set','25','images/IMG_5341_2.jpg','Gold chain necklace with a natural shell pendant, pearl drop, and matching shell-and-pearl earrings.')">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SHIPPING INFO -->
+  <div style="background:var(--honey-pale);border-radius:20px;padding:2rem;margin-top:4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center">
+    <div>
+      <div style="font-size:2rem;margin-bottom:0.5rem">📦</div>
+      <strong style="display:block;font-size:0.9rem;color:var(--charcoal)">Flat Rate Shipping</strong>
+      <span style="font-size:0.82rem;color:var(--text-light)">$9.85 anywhere in the US</span>
+    </div>
+    <div>
+      <div style="font-size:2rem;margin-bottom:0.5rem">⏱</div>
+      <strong style="display:block;font-size:0.9rem;color:var(--charcoal)">Processing Time</strong>
+      <span style="font-size:0.82rem;color:var(--text-light)">3–5 business days to make & ship</span>
+    </div>
+    <div>
+      <div style="font-size:2rem;margin-bottom:0.5rem">💳</div>
+      <strong style="display:block;font-size:0.9rem;color:var(--charcoal)">Secure Checkout</strong>
+      <span style="font-size:0.82rem;color:var(--text-light)">Stripe checkout · Apple Pay when available</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>Place Your Order</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-product-summary">
+      <div>
+        <div class="prod-name" id="modal-prod-name">Product Name</div>
+        <div style="font-size:0.78rem;color:var(--text-light);margin-top:0.2rem">Made fresh for you 🍯</div>
+      </div>
+      <div class="prod-price" id="modal-prod-price">$00</div>
+    </div>
+
+    <div id="orderFormWrap">
+      <div class="form-row">
+        <div class="form-group"><label>First Name *</label><input type="text" id="fname" placeholder="Natalie" required></div>
+        <div class="form-group"><label>Last Name *</label><input type="text" id="lname" placeholder="Smith" required></div>
+      </div>
+      <div class="form-group"><label>Email Address *</label><input type="email" id="email" placeholder="you@email.com" required></div>
+      <div class="form-group"><label>Phone Number *</label><input type="tel" id="phone" placeholder="(805) 555-0000" required></div>
+      <div class="form-group"><label>Street Address *</label><input type="text" id="address" placeholder="123 Main St" required></div>
+      <div class="form-row">
+        <div class="form-group"><label>City *</label><input type="text" id="city" placeholder="Seal Beach" required></div>
+        <div class="form-group"><label>State *</label><input type="text" id="state" placeholder="CA" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>ZIP Code *</label><input type="text" id="zip" placeholder="90740" required></div>
+        <div class="form-group"><label>Size/Fit Notes</label><input type="text" id="size" placeholder="e.g. small wrist, 6in"></div>
+      </div>
+      <div class="form-group"><label>Special Requests / Notes</label><textarea id="notes" placeholder="Any color preferences, occasion notes, etc."></textarea></div>
+
+      <div class="order-total">
+        <span>Item + Shipping ($9.85)</span>
+        <span class="total-price" id="modal-total">$00.00</span>
+      </div>
+
+      <div class="payment-box">
+        <p>Checkout is opening soon. For now, send this order request and HoneyWireStudio will reply with the next steps.</p>
+        <span class="payment-note">Prefer a quick order? DM @honeywirestudio on Instagram.</span>
+      </div>
+
+      <button class="submit-order-btn" onclick="submitOrder()">Send Order Request</button>
+    </div>
+
+    <div id="successMsg" class="success-msg" style="display:none">
+      <div class="check">🍯</div>
+      <h3>Order Request Ready!</h3>
+      <p>Your email app should open with the order details. Send it to HoneyWireStudio, and we will reply with the next steps.<br><br>Questions? Text <strong>(805) 535-8720</strong></p>
+      <button class="btn-gold" style="margin-top:1.5rem" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><h3>🍯 HoneyWireStudio</h3><p>Handcrafted wire jewelry<br>Seal Beach, CA</p></div>
+    <div class="footer-links"><h4>Shop</h4><a href="shop.html">Available Now</a><a href="coming-soon.html">Coming Soon</a><a href="customs.html">Custom Orders</a></div>
+    <div class="footer-links"><h4>Info</h4><a href="contact.html">Contact</a><a href="refund.html">Refund Policy</a></div>
+    <div class="footer-contact"><h4>Contact</h4><p>📧 nramirez1789@gmail.com</p><p>📱 (805) 535-8720</p><p>💳 Checkout coming soon</p></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 HoneyWireStudio. All rights reserved. 🐝</p></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+let currentProduct = {};
+
+function openModal(name, price, img, desc) {
+  currentProduct = { name, price: parseFloat(price), img };
+  document.getElementById('modal-prod-name').textContent = name;
+  document.getElementById('modal-prod-price').textContent = '$' + price;
+  const total = (parseFloat(price) + 9.85).toFixed(2);
+  document.getElementById('modal-total').textContent = '$' + total;
+  document.getElementById('orderFormWrap').style.display = 'block';
+  document.getElementById('successMsg').style.display = 'none';
+  document.getElementById('orderModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('orderModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function submitOrder() {
+  const required = ['fname','lname','email','phone','address','city','state','zip'];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      el.style.borderColor = '#e74c3c';
+      valid = false;
+    } else {
+      el.style.borderColor = '';
+    }
+  });
+  if (!valid) { alert('Please fill in all required fields.'); return; }
+
+  const total = (currentProduct.price + 9.85).toFixed(2);
+  const name = `${document.getElementById('fname').value.trim()} ${document.getElementById('lname').value.trim()}`;
+  const address = `${document.getElementById('address').value.trim()}, ${document.getElementById('city').value.trim()}, ${document.getElementById('state').value.trim()} ${document.getElementById('zip').value.trim()}`;
+  const subject = encodeURIComponent(`Order Request: ${currentProduct.name}`);
+  const body = encodeURIComponent(
+    `Hi HoneyWireStudio,\n\n` +
+    `I'd like to order:\n${currentProduct.name}\n\n` +
+    `Item: $${currentProduct.price}\nShipping: $9.85\nEstimated total: $${total}\n\n` +
+    `Customer info:\n` +
+    `Name: ${name}\n` +
+    `Email: ${document.getElementById('email').value.trim()}\n` +
+    `Phone: ${document.getElementById('phone').value.trim()}\n` +
+    `Address: ${address}\n` +
+    `Size/Fit Notes: ${document.getElementById('size').value.trim() || 'None'}\n` +
+    `Special Requests: ${document.getElementById('notes').value.trim() || 'None'}\n\n` +
+    `Please send me the next steps to complete my order.`
+  );
+
+  window.location.href = `mailto:nramirez1789@gmail.com?subject=${subject}&body=${body}`;
+  document.getElementById('orderFormWrap').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+
+document.getElementById('orderModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.product-card').forEach(card => {
+      if (filter === 'all' || card.dataset.cat.includes(filter)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
