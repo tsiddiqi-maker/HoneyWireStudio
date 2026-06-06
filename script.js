@@ -38,7 +38,7 @@ async function startStripeCheckout(order) {
     if (!response.ok) throw new Error(data.error || 'Checkout could not start.');
     window.location.href = data.url;
   } catch (error) {
-    alert(`${error.message}\n\nStripe checkout could not open. Check STRIPE_SECRET_KEY in Netlify and make sure the Netlify Function deployed.`);
+    alert(`${error.message}\n\nStripe checkout failed. Check your Vercel environment variables and function logs.`);
     if (button) {
       button.disabled = false;
       button.textContent = previousText;
