@@ -21,11 +21,11 @@ export default async function handler(req, res) {
     const shippingAmount = Math.round(Number(order.shippingAmount || 9.85) * 100);
 
     const siteUrl =
-      process.env.PUBLIC_SITE_URL || "https://honey-wire-studio.vercel.app";
+      process.env.PUBLIC_SITE_URL || "https://honey-wire-studio-ry4e.vercel.app/";
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      automatic_payment_methods: { enabled: true },
+      payment_method_types: ["card"],
       line_items: [
         {
           price_data: {
